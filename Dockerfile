@@ -26,10 +26,10 @@ RUN echo safeuser:abcd8765 | chpasswd
 WORKDIR /root
 
 #Setup NPM for non-root global install (like on a mac)
-RUN mkdir /home/safeuser/.npm-global
-RUN chown -R safeuser .npm-global
-RUN echo "export PATH=~/.npm-global/bin:$PATH" >> /home/safeuser/.profile
-RUN runuser -l safeuser -c "npm config set prefix '~/.npm-global'"
+#RUN mkdir /home/safeuser/.npm-global
+#RUN chown -R safeuser .npm-global
+#RUN echo "export PATH=~/.npm-global/bin:$PATH" >> /home/safeuser/.profile
+#RUN runuser -l safeuser -c "npm config set prefix '~/.npm-global'"
 
 # Update to the latest version of npm.
 #RUN npm install -g npm@7.23.0
