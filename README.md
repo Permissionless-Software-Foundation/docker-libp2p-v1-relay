@@ -15,6 +15,8 @@ This is used by the [Permissionless Software Foundation](https://psfoundation.in
 
 You can customize the [relay-config](./relay-config) if you'd like different settings.
 
+This Docker container is built for AMD64 architecture. But it can also be built for ARM64 (Raspberry Pi) architecture by modifying the [Dockerfile](./Dockerfile).
+
 ## License
 
 [MIT](./LICENSE.md)
