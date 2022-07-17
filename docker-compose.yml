@@ -1,0 +1,27 @@
+# Start the service with the command 'docker-compose up -d'
+
+version: '3.9'
+
+services:
+  circuit-relay-v1:
+    build: .
+    #image: christroutner/p2wdb:v3.0.6
+    container_name: circuit-relay-v1
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '10'
+    mem_limit: 1gb
+    environment:
+      MY_ENV_VAR: 'placeholder'
+    #links:
+    #  - p2wdb-mongodb
+    ports:
+      # <host port>:<container port>
+      - 4002:4002 # TCP
+      - 4003:4003 # Websockets
+    #volumes:
+    #  - ../data/ipfsdata/p2wdb:/home/safeuser/ipfs-p2wdb-service/.ipfsdata/p2wdb
+    #  - ./start-production.sh:/home/safeuser/ipfs-p2wdb-service/start-production.sh
+    restart: always
