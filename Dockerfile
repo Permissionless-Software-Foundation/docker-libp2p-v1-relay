@@ -65,6 +65,8 @@ RUN /usr/local/go/bin/go install github.com/libp2p/go-libp2p-relay-daemon/cmd/li
 # Copy the config file
 COPY relay-config /root/go/bin/relay-config
 
+CMD ["/root/go/bin/libp2p-relay-daemon", "-config", "relay-config"]
+
 # Start the application.
 #COPY start-production.sh start-production.sh
 #CMD ["./start-production.sh"]
@@ -72,5 +74,5 @@ COPY relay-config /root/go/bin/relay-config
 #CMD ["npm", "start"]
 
 # These lines should normally be commented out. They are used for debugging.
-COPY fake-program.js fake-program.js
-CMD ["node", "fake-program.js"]
+#COPY fake-program.js fake-program.js
+#CMD ["node", "fake-program.js"]
