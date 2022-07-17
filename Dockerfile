@@ -65,7 +65,7 @@ RUN /usr/local/go/bin/go install github.com/libp2p/go-libp2p-relay-daemon/cmd/li
 # Copy the config file
 COPY relay-config /root/go/bin/relay-config
 
-CMD ["/root/go/bin/libp2p-relay-daemon", "-config", "relay-config"]
+CMD ["/root/go/bin/libp2p-relay-daemon", "-config", "/root/go/bin/relay-config"]
 
 # Start the application.
 #COPY start-production.sh start-production.sh
