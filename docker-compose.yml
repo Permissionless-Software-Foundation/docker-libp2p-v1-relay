@@ -5,7 +5,7 @@ version: '3.9'
 services:
   circuit-relay-v1:
     build: .
-    #image: christroutner/p2wdb:v3.0.6
+    #image: christroutner/libp2p-relay
     container_name: circuit-relay-v1
     logging:
       driver: 'json-file'
@@ -21,7 +21,8 @@ services:
       # <host port>:<container port>
       - 4002:4002 # TCP
       - 4003:4003 # Websockets
-    #volumes:
+    volumes:
+      - ./relay-config:/root/go/bin/relay-config
     #  - ../data/ipfsdata/p2wdb:/home/safeuser/ipfs-p2wdb-service/.ipfsdata/p2wdb
     #  - ./start-production.sh:/home/safeuser/ipfs-p2wdb-service/start-production.sh
     restart: always

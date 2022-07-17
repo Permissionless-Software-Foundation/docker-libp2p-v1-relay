@@ -63,7 +63,7 @@ RUN tar -C /usr/local -xzf go1.17.12.linux-amd64.tar.gz
 RUN /usr/local/go/bin/go install github.com/libp2p/go-libp2p-relay-daemon/cmd/libp2p-relay-daemon@latest
 
 # Copy the config file
-COPY relay-config /root/go/bin/relay-config
+#COPY relay-config /root/go/bin/relay-config
 
 CMD ["/root/go/bin/libp2p-relay-daemon", "-config", "/root/go/bin/relay-config"]
 
