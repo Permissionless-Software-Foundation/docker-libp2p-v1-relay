@@ -4,6 +4,17 @@ This repository builds a Docker image that contains an instance of [go-libp2p-re
 
 This is used by the [Permissionless Software Foundation](https://psfoundation.info) IPFS network to allow for automatic tunneling through firewalls, in order share files across the network.
 
+## Installation
+
+- Ensure you have Docker and Docker Compose installed. It's assumed you are running on Ubuntu Linux.
+  - [Directions](https://bafybeia6bmmobrl2mrracakx6uzohjwdnymzzgvw6d4voesri5ghfh2nju.ipfs.dweb.link/docs/dev-ops/overview) ([Mirror](https://christroutner.github.io/trouts-blog/docs/dev-ops/overview))
+- `git clone https://github.com/Permissionless-Software-Foundation/docker-libp2p-v1-relay`
+- `cd docker-libp2p-v1-relay`
+- `docker-compose pull`
+- `docker-compose up -d`
+
+You can customize the [relay-config](./relay-config) if you'd like different settings.
+
 ## License
 
 [MIT](./LICENSE.md)

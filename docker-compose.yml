@@ -4,8 +4,8 @@ version: '3.9'
 
 services:
   circuit-relay-v1:
-    build: .
-    #image: christroutner/libp2p-relay
+    #build: .
+    image: christroutner/circuit-relay-v1:v1.0.0
     container_name: circuit-relay-v1
     logging:
       driver: 'json-file'
