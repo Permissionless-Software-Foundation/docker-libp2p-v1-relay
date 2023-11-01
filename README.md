@@ -17,6 +17,22 @@ You can customize the [relay-config](./relay-config) if you'd like different set
 
 This Docker container is built for AMD64 architecture. But it can also be built for ARM64 (Raspberry Pi) architecture by modifying the [Dockerfile](./Dockerfile).
 
+## Persistent Identity
+
+The Docker container generates a new IPFS ID every time it is restarted. This is a problem if you are trying to use this Docker container as a piece of infrastructure that needs to retain its ID over time.
+
+To make the identity persistent, follow these steps:
+
+- Bring the Docker container up (`docker-compose up -d`)
+- Enter the Docker container with `docker exec -it circuit-relay-v1 bash`
+- Use the `scp` tool to send the `identity` file to the host machine
+- Take the Docker container down (`docker-compose down`)
+- Edit the last line of the Dockerfile to this: `CMD ["/root/go/bin/libp2p-relay-daemon", "-config", "/root/go/bin/relay-config", "-identity", "/root/go/bin/identity"]`
+- Add this line to the `volumes` section of docker-compose.yml: `- ./identity:/root/go/bin/identity`
+- Comment out the `image` property and uncomment the `build` property in docker-compose.yml
+- Build the Docker container: `docker-compose build`
+- Bring the container up: `docker-compose up -d`
+
 ## License
 
 [MIT](./LICENSE.md)
