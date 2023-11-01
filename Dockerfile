@@ -31,10 +31,6 @@ WORKDIR /root
 #RUN echo "export PATH=~/.npm-global/bin:$PATH" >> /home/safeuser/.profile
 #RUN runuser -l safeuser -c "npm config set prefix '~/.npm-global'"
 
-# Update to the latest version of npm.
-#RUN npm install -g npm@7.23.0
-RUN npm install -g npm
-
 # npm mirror to prevent direct dependency on npm.
 RUN npm set registry http://94.130.170.209:4873/
 
@@ -45,15 +41,15 @@ RUN npm set registry http://94.130.170.209:4873/
 
 # Download Go v1.17
 # AMD64
-RUN wget https://go.dev/dl/go1.17.12.linux-amd64.tar.gz
+RUN wget https://go.dev/dl/go1.18.10.linux-amd64.tar.gz
 # ARM64 (Raspberry Pi)
-#RUN wget https://go.dev/dl/go1.17.12.darwin-arm64.tar.gz
+#RUN wget https://go.dev/dl/go1.18.10.darwin-arm64.tar.gz
 
 # Install Go
 # AMD64
-RUN tar -C /usr/local -xzf go1.17.12.linux-amd64.tar.gz
+RUN tar -C /usr/local -xzf go1.18.10.linux-amd64.tar.gz
 # ARM64 (Raspberry Pi)
-#RUN tar -C /usr/local -xzf go1.17.12.darwin-arm64.tar.gz
+#RUN tar -C /usr/local -xzf go1.18.10.darwin-arm64.tar.gz
 
 # Set environment variables
 #RUN export PATH=$PATH:/usr/local/go/bin
